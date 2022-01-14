@@ -7,11 +7,7 @@ const AboutMe = ({ desc, pfp }) => {
       <div className="about-me-info">
         <div className="about-me-text">
           {desc.map((text, i) => {
-            return (
-              <>
-                <p key={i}>{text}</p> <br />
-              </>
-            );
+            return <p key={i}>{text}</p>;
           })}
         </div>
         <img src={pfp} alt="Siddhant Tohan" className="profile-pic" />
