@@ -31,12 +31,12 @@
       }
     },
     "size": {
-      "value": 5
+      "value": 3
     },
     "move": {
       "enable": true,
       "speed": 3,
-      "direction": "top",
+      "direction": "none",
       "out_mode": "out",
       "bounce": false
     },
@@ -55,7 +55,7 @@
     "modes": {
       "bubble": {
         "distance": 800,
-        "size": 12,
+        "size": 6,
         "duration": 5,
         "opacity": 1,
         "speed": 2
