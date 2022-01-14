@@ -48,6 +48,14 @@ html {
   margin-top: auto;
   padding: 10px;
 }
+
+#tsparticles {
+  z-index: -9;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
 /* BODY  */
 body {
   background: rgba(2, 0, 79, 1);
