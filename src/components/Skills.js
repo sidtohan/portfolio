@@ -1,8 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
 const SkillCard = ({ skill }) => {
-  const [skillName, setSkillName] = useState("");
-  const showSkillName = () => setSkillName(skill.name);
-  const hideSkillName = () => setSkillName("");
+  const [skillNameVisible, setSkillNameVisible] = useState(false);
+  const skillNameRef = useRef(null);
+  const showSkillName = async () => {
+    setSkillNameVisible(true);
+  };
+
+  const hideSkillName = async () => {
+    setSkillNameVisible(false);
+  };
+
+  useEffect(() => {
+    if (!skillNameRef.current) return;
+    if (skillNameVisible) {
+      skillNameRef.current.classList.add("show");
+    } else {
+      skillNameRef.current.classList.remove("show");
+    }
+  }, [skillNameVisible]);
+  
   return (
     <div
       className="skill-card"
@@ -10,7 +27,9 @@ const SkillCard = ({ skill }) => {
       onMouseLeave={hideSkillName}
     >
       <img src={skill.icon} alt={skill.name} />
-      <div className="skill-name">{skillName}</div>
+      <div className="skill-name" ref={skillNameRef}>
+        {skill.name}
+      </div>
     </div>
   );
 };
