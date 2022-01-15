@@ -3,8 +3,17 @@ import Welcome from "./components/Welcome";
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
+import Block from "./components/Block";
+
 import pfp from "./profile-pic.png";
 
+const blocksArray = () => {
+  const blockArray = [];
+  for (let i = 0; i < 15; i++) {
+    blockArray.push(<Block key={i} index={i} />);
+  }
+  return blockArray;
+};
 const App = () => {
   const navList = ["Home", "About Me", "Skills", "Achievements", "Projects"];
   const desc = [
@@ -70,6 +79,7 @@ const App = () => {
       <Welcome name={"Siddhant Tohan"} />
       <AboutMe desc={desc} pfp={pfp} />
       <Skills skills={skills} />
+      {blocksArray()}
     </>
   );
 };
