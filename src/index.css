@@ -197,13 +197,14 @@ header {
 /* BODY  */
 ::-webkit-scrollbar {
   width: 10px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background: #fff;
+  z-index: 3;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #09753a;
+  background-color: #021f2e;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #042f45;
+  background-color: #09753a;
 }
 
 body,

@@ -9,7 +9,7 @@ import pfp from "./profile-pic.png";
 
 const blocksArray = () => {
   const blockArray = [];
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 17; i++) {
     blockArray.push(<Block key={i} index={i} />);
   }
   return blockArray;
