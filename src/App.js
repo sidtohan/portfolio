@@ -3,8 +3,9 @@ import Welcome from "./components/Welcome";
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
-import Block from "./components/Block";
+import Achievements from "./components/Achievements";
 
+import Block from "./components/Block";
 import pfp from "./profile-pic.png";
 
 const blocksArray = () => {
@@ -73,12 +74,24 @@ const App = () => {
       icon: "https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/c/c-original.svg",
     },
   ];
+  const achievements = [
+    {
+      text: "Took part in 30 Days of Google Cloud, and completed both the tracks(Cloud Engineering and Machine Learning)",
+    },
+    {
+      text: "Completed parts 0-5 of Full Stack Open 2021, with 5 credits and grade 4",
+    },
+    {
+      text: "6 Star in Problem solving on Hackerrank with many other 5 stars",
+    },
+  ];
   return (
     <>
       <Header name={"sidtohan"} navList={navList} />
       <Welcome name={"Siddhant Tohan"} />
       <AboutMe desc={desc} pfp={pfp} />
       <Skills skills={skills} />
+      <Achievements achievements={achievements} />
       {blocksArray()}
     </>
   );

@@ -1,25 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 const SkillCard = ({ skill }) => {
-  const [skillNameVisible, setSkillNameVisible] = useState(false);
   const skillNameRef = useRef(null);
   const showSkillName = async () => {
-    setSkillNameVisible(true);
+    skillNameRef.current.classList.add("show");
   };
 
   const hideSkillName = async () => {
-    setSkillNameVisible(false);
+    skillNameRef.current.classList.remove("show");
   };
 
-  useEffect(() => {
-    if (!skillNameRef.current) return;
-    if (skillNameVisible) {
-      skillNameRef.current.classList.add("show");
-    } else {
-      skillNameRef.current.classList.remove("show");
-    }
-  }, [skillNameVisible]);
-  
   return (
     <div
       className="skill-card"
@@ -36,7 +26,7 @@ const SkillCard = ({ skill }) => {
 const Skills = ({ skills }) => {
   return (
     <section id="skills">
-      <h2>Skills</h2>
+      <h2 className="section-heading">Skills</h2>
       <div className="skill-card-holder">
         {skills.map((skill) => (
           <SkillCard skill={skill} key={skill.name} />
