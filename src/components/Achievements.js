@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 
 const AchievementPiece = ({ achievement, index }) => {
-  const [ifGreen, setIfGreen] = useState(false);
+  const [ifYellow, setIfYellow] = useState(false);
   const changeColor = (e) => {
-    setIfGreen(!ifGreen);
+    setIfYellow(!ifYellow);
   };
   let style;
   if (index % 3 === 0) {
@@ -24,22 +24,22 @@ const AchievementPiece = ({ achievement, index }) => {
   return (
     <div className={`achievements-grid-ele ${index % 3}`} style={style}>
       <p>{achievement.text}</p>
-      <button className="expand-achievement">
-        {!ifGreen ? (
+      <button
+        className="expand-achievement"
+        onMouseEnter={changeColor}
+        onMouseLeave={changeColor}
+      >
+        {!ifYellow ? (
           <Icon
             icon="ep:arrow-down-bold"
             color="#021f2e"
             className="expand-achievement-down-arrow"
-            onMouseEnter={changeColor}
-            onMouseLeave={changeColor}
           />
         ) : (
           <Icon
             icon="ep:arrow-down-bold"
-            color="#09753a"
+            color="#cca43b"
             className="expand-achievement-down-arrow"
-            onMouseEnter={changeColor}
-            onMouseLeave={changeColor}
           />
         )}
       </button>

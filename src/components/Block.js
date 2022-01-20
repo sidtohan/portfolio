@@ -9,13 +9,13 @@ const Block = ({ index }) => {
     zIndex: 0,
     height: dimension,
     width: dimension,
-    position: "fixed",
+    position: "absolute",
     bottom: -dimension,
     left: `${index * 15 > 90 ? index * 15 - 90 : index * 15}%`,
-    backgroundColor: "#021f2e",
+    backgroundColor: "#242424",
     animation: `float-around infinite 15s linear`,
     animationDelay: `${Math.floor(Math.random() * 20)}s`,
-    boxShadow: "0 0 6px 0 #021f2e",
+    boxShadow: "0 0 6px 0 #242424",
   };
   return <div className="bg-block" style={inlineStyle}></div>;
 };

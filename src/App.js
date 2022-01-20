@@ -4,13 +4,14 @@ import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
 import Achievements from "./components/Achievements";
+import Projects from "./components/Projects";
 
 import Block from "./components/Block";
 import pfp from "./profile-pic.png";
 
 const blocksArray = () => {
   const blockArray = [];
-  for (let i = 0; i < 17; i++) {
+  for (let i = 0; i < 10; i++) {
     blockArray.push(<Block key={i} index={i} />);
   }
   return blockArray;
@@ -88,11 +89,10 @@ const App = () => {
   return (
     <>
       <Header name={"sidtohan"} navList={navList} />
-      <Welcome name={"Siddhant Tohan"} />
+      <Welcome name={"Siddhant Tohan"}> {blocksArray()}</Welcome>
       <AboutMe desc={desc} pfp={pfp} />
       <Skills skills={skills} />
-      <Achievements achievements={achievements} />
-      {blocksArray()}
+      <Projects />
     </>
   );
 };
