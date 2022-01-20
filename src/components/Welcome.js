@@ -3,9 +3,11 @@ const Welcome = ({ name }) => {
   return (
     <>
       <section id="welcome">
-        <h2>WELCOME</h2>
-        <div className="name">{name}</div>
-        <div className="welcome-skills">Fullstack Developer</div>
+        <h2>Hi!</h2>
+        <div className="name">My name is {name}.</div>
+        <div className="welcome-skills">
+          I'm a <span className="welcome-skill-name">Fullstack Developer</span>
+        </div>
       </section>
     </>
   );
