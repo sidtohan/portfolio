@@ -9,7 +9,6 @@ const Welcome = (props) => {
           I'm a <span className="welcome-skill-name">Fullstack Developer</span>
         </div>
       </div>
-      {props.children}
     </section>
   );
 };

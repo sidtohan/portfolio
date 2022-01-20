@@ -86,13 +86,37 @@ const App = () => {
       text: "6 Star in Problem solving on Hackerrank with many other 5 stars",
     },
   ];
+
+  const projects = [
+    {
+      info: "Created a weather app using HTML, CSS, and Vanilla Javascript that uses the open weather api to provide weather information",
+      repo: "https://github.com/sidtohan/Weather-App",
+      live: "https://sidtohan.github.io/Weather-App",
+    },
+    {
+      info: "Made a calculator app using HTML, CSS and Vanilla Javascript",
+      repo: "https://github.com/sidtohan/Calculator",
+      live: "https://sidtohan.github.io/Calculator",
+    },
+    {
+      info: "Made an Etch a Sketch app that uses DOM manipulation",
+      repo: "https://github.com/sidtohan/Etch-a-Sketch",
+      live: "https://sidtohan.github.io/Etch-a-Sketch",
+    },
+    {
+      info: "Made backend for a blog app as a part of Full Stack Open 21",
+      repo: "https://github.com/sidtohan/FSO",
+      live: "https://sidtohan.github.io",
+    },
+  ];
   return (
     <>
       <Header name={"sidtohan"} navList={navList} />
-      <Welcome name={"Siddhant Tohan"}> {blocksArray()}</Welcome>
+      <Welcome name={"Siddhant Tohan"} />
       <AboutMe desc={desc} pfp={pfp} />
       <Skills skills={skills} />
-      <Projects />
+      <Projects projects={projects} />
+      {blocksArray()}
     </>
   );
 };
