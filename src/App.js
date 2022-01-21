@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import Welcome from "./components/Welcome";
+import Home from "./components/Home";
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
@@ -23,6 +23,12 @@ const blocksArray = () => {
 // Main App
 const App = () => {
   const navList = ["Home", "About Me", "Skills", "Projects"];
+  const skillList = [
+    "Fullstack Developer",
+    "Competitive Programmer",
+    "Cloud Enthusiast",
+    "Pythonista",
+  ];
   const desc = [
     `I am a fullstack developer who is constantly looking to further my skills. 
   I prefer to make minimalist designs for my websites that create an impact on the users.`,
@@ -151,7 +157,7 @@ const App = () => {
   return (
     <>
       <Header name={"sidtohan"} navList={navList} />
-      <Welcome name={"Siddhant Tohan"} />
+      <Home name={"Siddhant Tohan"} skillList={skillList} />
       <AboutMe desc={desc} pfp={pfp} />
       <Skills skills={skills} />
       <Projects projects={projects} />

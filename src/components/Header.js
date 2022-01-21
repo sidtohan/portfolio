@@ -7,7 +7,16 @@ const Header = ({ name, navList }) => {
       <nav>
         <ul className="nav-list">
           {navList.map((item, i) => (
-            <li key={i} className="nav-item">
+            <li
+              key={i}
+              className="nav-item"
+              onClick={() => {
+                const DOM = document.getElementById(
+                  item.split(" ").join("-").toLowerCase()
+                );
+                DOM.scrollIntoView();
+              }}
+            >
               {item}
             </li>
           ))}
