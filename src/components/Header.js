@@ -11,6 +11,11 @@ const Header = ({ name, navList, headerRef }) => {
               key={i}
               className="nav-item"
               onClick={() => {
+                if (item === "Home") {
+                  document.body.scrollTop = 0; // For Safari
+                  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                  return;
+                }
                 const DOM = document.getElementById(
                   item.split(" ").join("-").toLowerCase()
                 );

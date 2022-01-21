@@ -146,7 +146,7 @@ header.sticky + #home {
   width: 100%;
   background-color: #e5e5e5;
   color: #242f40;
-  gap: 10px;
+  gap: 20px;
 }
 
 .about-me-heading {
@@ -172,8 +172,14 @@ header.sticky + #home {
   font-weight: 600;
   font-size: 30px;
   color: #363636;
+
+  transform: translateX(-75px);
+  opacity: 0;
 }
 
+.about-me-text.show {
+  animation: fade-in-left 0.42s ease-in-out forwards;
+}
 .about-me-text > p {
   margin: 20px 0;
 }
@@ -183,6 +189,13 @@ header.sticky + #home {
   height: 450px;
   width: auto;
   padding: 20px;
+
+  transform: translateX(75px);
+  opacity: 0;
+}
+
+.profile-pic.show {
+  animation: fade-in-right 0.42s ease-in-out forwards;
 }
 
 /* SKILLS  */
@@ -195,8 +208,8 @@ header.sticky + #home {
   width: 100%;
   background-color: #e5e5e5;
   color: #042f45;
-  gap: 30px;
-  padding-top: 0;
+  gap: 40px;
+  padding-bottom: 92px;
 }
 
 .skills-heading {
@@ -224,13 +237,19 @@ header.sticky + #home {
   border-radius: 20px;
   box-shadow: 0 0 3px 0 #363636;
 
-  transition: 0.2s ease-in-out;
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  transform: translateY(-75px);
+  opacity: 0;
 }
 
-.skill-card:hover {
+.skill-card.show {
+  transition: 0.2s ease-in-out;
+  animation: 0.42s ease-in-out fade-in-top forwards;
+}
+.skill-card.show:hover {
   transform: scale(1.1);
   border: #363636 solid 4px;
 }
@@ -318,6 +337,7 @@ header.sticky + #home {
 #projects {
   color: #fff;
   width: 100%;
+  padding-bottom: 92px;
 
   display: flex;
   flex-direction: column;
@@ -395,6 +415,8 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 30px;
+
+  padding-bottom: 92px;
 }
 
 footer > h2 {
@@ -569,7 +591,7 @@ html {
 section,
 footer {
   z-index: 1;
-  padding: 60px 0;
+  padding-top: 92px;
 }
 
 #root {

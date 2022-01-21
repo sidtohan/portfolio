@@ -154,12 +154,29 @@ const App = () => {
     },
   ];
 
+  const waitms = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   const triggerShow = (entries, observer) => {
-    entries.forEach((ent) => {
+    entries.forEach(async (ent) => {
       if (ent.isIntersecting) {
         const heading = ent.target.querySelector(".section-heading");
         if (!heading) return;
         heading.classList.add("show");
+
+        if (ent.target.id === "about-me") {
+          const aboutText = ent.target.querySelector(".about-me-text");
+          const pfp = ent.target.querySelector(".profile-pic");
+          await waitms(150);
+          aboutText.classList.add("show");
+          await waitms(75);
+          pfp.classList.add("show");
+        } else if (ent.target.id === "skills") {
+          const cards = ent.target.querySelectorAll(".skill-card");
+          for (let card of cards) {
+            await waitms(50);
+            card.classList.add("show");
+          }
+        }
       }
     });
   };
@@ -168,7 +185,7 @@ const App = () => {
   useEffect(() => {
     const options = {
       rootMargin: "0px",
-      threshold: 0.25,
+      threshold: 0.3,
     };
 
     let observer = new IntersectionObserver(triggerShow, options);
