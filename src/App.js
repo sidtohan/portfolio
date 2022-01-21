@@ -159,22 +159,38 @@ const App = () => {
   const triggerShow = (entries, observer) => {
     entries.forEach(async (ent) => {
       if (ent.isIntersecting) {
-        const heading = ent.target.querySelector(".section-heading");
+        const section = ent.target;
+
+        const heading = section.querySelector(".section-heading");
         if (!heading) return;
         heading.classList.add("show");
 
-        if (ent.target.id === "about-me") {
-          const aboutText = ent.target.querySelector(".about-me-text");
-          const pfp = ent.target.querySelector(".profile-pic");
-          await waitms(150);
+        if (section.id === "about-me") {
+          const aboutText = section.querySelector(".about-me-text");
+          const pfp = section.querySelector(".profile-pic");
+          await waitms(200);
           aboutText.classList.add("show");
           await waitms(75);
           pfp.classList.add("show");
-        } else if (ent.target.id === "skills") {
-          const cards = ent.target.querySelectorAll(".skill-card");
+        } else if (section.id === "skills") {
+          const cards = section.querySelectorAll(".skill-card");
           for (let card of cards) {
             await waitms(50);
             card.classList.add("show");
+          }
+        } else if (section.id === "projects") {
+          const projectCards = section.querySelectorAll(".project-card");
+          await waitms(200);
+          for (let card of projectCards) {
+            await waitms(60);
+            card.classList.add("show");
+          }
+        } else if (section.id === "contacts") {
+          const contactElements = section.querySelectorAll(".contact-element");
+          await waitms(200);
+          for (let element of contactElements) {
+            await waitms(60);
+            element.classList.add("show");
           }
         }
       }

@@ -5,7 +5,6 @@
   margin: 0;
   box-sizing: border-box;
   backface-visibility: hidden;
-  scroll-behavior: smooth;
 }
 
 a {
@@ -378,12 +377,17 @@ header.sticky + #home {
   padding: 30px;
   font-size: 25px;
   box-shadow: 0 0 6px 0 #242424;
-  transition: 0.3s ease-in-out;
 
   border-radius: 2px;
+  transform: scale(0);
 }
 
-.project-card:hover {
+.project-card.show {
+  transition: 0.42s ease-in-out;
+  animation: pop-in 0.42s ease-in-out forwards;
+}
+
+.project-card.show:hover {
   background-color: #242424;
   color: #e5e5e5;
   transform: scale(1.03);
@@ -453,7 +457,12 @@ footer > h2 {
   flex-direction: column;
   gap: 10px;
 
+  opacity: 0;
+}
+
+.contact-element.show {
   transition: 0.3s ease-in-out;
+  animation: 0.42s ease-in-out fade-in-normal forwards;
 }
 
 .contact-holder-no-link > .contact-element {
@@ -510,9 +519,22 @@ html {
   height: 100%;
   width: 100%;
   background-color: #363636;
+
+  scroll-behavior: smooth;
 }
 
 /* ANIMATIONS  */
+@keyframes pop-in {
+  50% {
+    transform: scale(1.1);
+  }
+  95% {
+    transform: scale(0.99);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @keyframes blink {
   0% {
     opacity: 1;
