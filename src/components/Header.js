@@ -7,7 +7,9 @@ const Header = ({ name, navList }) => {
       <nav>
         <ul className="nav-list">
           {navList.map((item, i) => (
-            <li key={i} className="nav-item">{item}</li>
+            <li key={i} className="nav-item">
+              {item}
+            </li>
           ))}
         </ul>
       </nav>

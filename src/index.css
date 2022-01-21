@@ -8,10 +8,16 @@
   scroll-behavior: smooth;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .section-heading {
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 90px;
+  text-align: center;
 }
 
 /* HEADER  */
@@ -64,7 +70,7 @@ header {
 }
 
 .welcome-holder {
-  width: 1200px;
+  width: min(1200px, 90%);
   z-index: 1;
 }
 .name {
@@ -86,6 +92,7 @@ header {
 .welcome-skill-name {
   color: #cca43b;
 }
+
 /* ABOUT ME  */
 #about-me {
   display: flex;
@@ -284,7 +291,9 @@ header {
   padding: 30px;
   font-size: 25px;
   box-shadow: 0 0 6px 0 #242424;
-  transition: 0.42s ease-in-out;
+  transition: 0.3s ease-in-out;
+
+  border-radius: 2px;
 }
 
 .project-card:hover {
@@ -293,14 +302,94 @@ header {
   transform: scale(1.03);
 }
 
+.project-card:hover .project-live-link {
+  color: #008bd1;
+}
+
 .project-live-link {
   color: #042f45;
   text-decoration: none;
+  transition: 0.3s ease-in-out;
 }
 
 .project-repo-link {
   color: #cca43b;
   text-decoration: none;
+}
+
+/* CONTACT  */
+footer {
+  width: 100%;
+  background-color: #e5e5e5;
+  color: #363636;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+footer > h2 {
+  color: #042f45;
+}
+
+.contact-holder {
+  width: min(900px, 80%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.contact-holder-no-link {
+  display: flex;
+  width: min(1100px, 80%);
+  justify-content: center;
+}
+
+.contact-element {
+  cursor: pointer;
+  padding: 30px;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  transition: 0.3s ease-in-out;
+}
+
+.contact-holder-no-link > .contact-element {
+  width: 50%;
+  text-align: center;
+}
+.contact-element:hover {
+  background-color: #242424;
+  color: #cca43b;
+  border-radius: 10px;
+}
+
+.contact-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-logo-img {
+  display: block;
+  width: 100%;
+  height: 50px;
+}
+
+.contact-logo-img path {
+  transition: 0.3s ease-in-out;
+}
+
+.contact-element:hover .contact-logo-img path {
+  color: #cca43b;
+}
+
+.contact-main {
+  text-align: center;
 }
 
 /* BODY  */
@@ -337,7 +426,8 @@ html {
   }
 }
 
-section {
+section,
+footer {
   z-index: 1;
   padding: 60px 0;
 }

@@ -1,14 +1,17 @@
 import React from "react";
+// Components
 import Welcome from "./components/Welcome";
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
-import Achievements from "./components/Achievements";
 import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
+// Misc
 import Block from "./components/Block";
 import pfp from "./profile-pic.png";
 
+// For background blocks
 const blocksArray = () => {
   const blockArray = [];
   for (let i = 0; i < 10; i++) {
@@ -16,8 +19,10 @@ const blocksArray = () => {
   }
   return blockArray;
 };
+
+// Main App
 const App = () => {
-  const navList = ["Home", "About Me", "Skills", "Achievements", "Projects"];
+  const navList = ["Home", "About Me", "Skills", "Projects"];
   const desc = [
     `I am a fullstack developer who is constantly looking to further my skills. 
   I prefer to make minimalist designs for my websites that create an impact on the users.`,
@@ -109,6 +114,40 @@ const App = () => {
       live: "https://sidtohan.github.io",
     },
   ];
+
+  const contacts = [
+    {
+      icon: "fluent:mail-20-filled",
+      main: "Email",
+      content: "siddhant.tohan.in@protonmail.com",
+    },
+    {
+      icon: "bx:bxs-phone",
+      main: "Phone",
+      content: "+91-7217656980",
+    },
+    {
+      icon: "akar-icons:github-fill",
+      main: "Github",
+      link: "https://github.com/sidtohan",
+    },
+    {
+      icon: "fa-brands:hackerrank",
+      main: "Hackerrank",
+      link: "https://www.hackerrank.com/SoloTomato",
+    },
+    {
+      icon: "simple-icons:codechef",
+      main: "Codechef",
+      link: "https://www.codechef.com/users/siddhant_tohan",
+    },
+    {
+      icon: "akar-icons:linkedin-fill",
+      main: "Linkedin",
+      link: "https://in.linkedin.com/in/siddhant-tohan",
+    },
+  ];
+
   return (
     <>
       <Header name={"sidtohan"} navList={navList} />
@@ -116,6 +155,7 @@ const App = () => {
       <AboutMe desc={desc} pfp={pfp} />
       <Skills skills={skills} />
       <Projects projects={projects} />
+      <Contact contacts={contacts} />
       {blocksArray()}
     </>
   );
