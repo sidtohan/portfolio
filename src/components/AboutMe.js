@@ -3,7 +3,7 @@ import React from "react";
 const AboutMe = ({ desc, pfp }) => {
   return (
     <section id="about-me">
-      <h2 className="section-heading">About Me</h2>
+      <h2 className="section-heading about-me-heading">About Me</h2>
       <div className="about-me-info">
         <div className="about-me-text">
           {desc.map((text, i) => {

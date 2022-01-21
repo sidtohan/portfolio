@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 // Components
 import Home from "./components/Home";
 import Header from "./components/Header";
@@ -14,7 +14,7 @@ import pfp from "./profile-pic.png";
 // For background blocks
 const blocksArray = () => {
   const blockArray = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 15; i++) {
     blockArray.push(<Block key={i} index={i} />);
   }
   return blockArray;
@@ -22,7 +22,7 @@ const blocksArray = () => {
 
 // Main App
 const App = () => {
-  const navList = ["Home", "About Me", "Skills", "Projects"];
+  const navList = ["Home", "About Me", "Skills", "Projects", "Contacts"];
   const skillList = [
     "Fullstack Developer",
     "Competitive Programmer",
@@ -154,9 +154,47 @@ const App = () => {
     },
   ];
 
+  const triggerShow = (entries, observer) => {
+    entries.forEach((ent) => {
+      if (ent.isIntersecting) {
+        const heading = ent.target.querySelector(".section-heading");
+        if (!heading) return;
+        heading.classList.add("show");
+      }
+    });
+  };
+
+  // Observer
+  useEffect(() => {
+    const options = {
+      rootMargin: "0px",
+      threshold: 0.25,
+    };
+
+    let observer = new IntersectionObserver(triggerShow, options);
+    navList.forEach((item) => {
+      const DOM = document.getElementById(
+        item.split(" ").join("-").toLowerCase()
+      );
+      observer.observe(DOM);
+    });
+
+    const scrollObserver = (e) => {
+      const verticalDistance = window.scrollY;
+      if (verticalDistance > 400) {
+        headerRef.current.classList.add("sticky");
+      } else {
+        headerRef.current.classList.remove("sticky");
+      }
+    };
+
+    window.addEventListener("scroll", scrollObserver);
+  });
+
+  const headerRef = useRef(null);
   return (
     <>
-      <Header name={"sidtohan"} navList={navList} />
+      <Header name={"sidtohan"} navList={navList} headerRef={headerRef} />
       <Home name={"Siddhant Tohan"} skillList={skillList} />
       <AboutMe desc={desc} pfp={pfp} />
       <Skills skills={skills} />

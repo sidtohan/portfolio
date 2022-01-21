@@ -18,19 +18,32 @@ a {
     Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 90px;
   text-align: center;
+  opacity: 0;
 }
 
 /* HEADER  */
 header {
   z-index: 2;
-  padding: 20px;
+  padding: 20px 100px;
   width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #fff;
 
+  width: 100%;
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI";
+  transition: 0.42s ease-in-out background-color;
+}
+
+header.sticky {
+  position: fixed;
+  top: 0;
+  background-color: #242424;
+}
+
+header.sticky + #home {
+  margin-top: 92px;
 }
 
 .header-name {
@@ -59,8 +72,9 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   width: 100%;
-  padding: 150px 0px;
+  padding: 160px 0px;
   color: #fff;
 }
 
@@ -68,18 +82,26 @@ header {
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 150px;
+  transform: translateX(-100px);
+  opacity: 0;
+  animation: fade-in-left 0.5s forwards ease-in-out;
 }
 
 .home-holder {
   width: min(1200px, 90%);
   z-index: 1;
 }
+
 .name {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 40px;
   font-weight: bold;
   letter-spacing: 0.05em;
+
+  opacity: 0;
+  animation: fade-in-normal 0.5s ease-in-out forwards;
+  animation-delay: 0.4s;
 }
 
 .home-skills {
@@ -91,6 +113,11 @@ header {
 
   display: flex;
   align-items: center;
+
+  opacity: 0;
+
+  animation: fade-in-normal 0.4s ease-in-out forwards;
+  animation-delay: 0.7s;
 }
 
 .home-skill-name {
@@ -109,20 +136,6 @@ header {
   animation: blink 0.6s linear infinite alternate;
 }
 
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  40% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 /* ABOUT ME  */
 #about-me {
   display: flex;
@@ -134,6 +147,14 @@ header {
   background-color: #e5e5e5;
   color: #242f40;
   gap: 10px;
+}
+
+.about-me-heading {
+  transform: translateX(75px);
+}
+
+.about-me-heading.show {
+  animation: fade-in-right 0.42s ease-in-out forwards;
 }
 
 .about-me-info {
@@ -176,6 +197,14 @@ header {
   color: #042f45;
   gap: 30px;
   padding-top: 0;
+}
+
+.skills-heading {
+  transform: translateX(-75px);
+}
+
+.skills-heading.show {
+  animation: 0.42s ease-in-out fade-in-left forwards;
 }
 
 .skill-card-holder {
@@ -296,6 +325,14 @@ header {
   gap: 60px;
 }
 
+.projects-heading {
+  transform: translateX(75px);
+}
+
+.projects-heading.show {
+  animation: fade-in-right 0.42s ease-in-out forwards;
+}
+
 .projects-holder {
   height: 700px;
   width: 1100px;
@@ -364,13 +401,21 @@ footer > h2 {
   color: #042f45;
 }
 
-.contact-holder {
+.contacts-holder {
   width: min(900px, 80%);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
-.contact-holder-no-link {
+.contacts-heading {
+  transform: translateX(-75px);
+}
+
+.contacts-heading.show {
+  animation: fade-in-left 0.42s ease-in-out forwards;
+}
+
+.contacts-holder-no-link {
   display: flex;
   width: min(1100px, 80%);
   justify-content: center;
@@ -445,7 +490,22 @@ html {
   background-color: #363636;
 }
 
-/* BG  */
+/* ANIMATIONS  */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes float-around {
   to {
     bottom: 100%;
@@ -453,6 +513,56 @@ html {
   }
   from {
     transform: rotate(0);
+  }
+}
+
+@keyframes fade-in-normal {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-left {
+  50% {
+    transform: translateX(20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-right {
+  50% {
+    transform: translateX(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-bottom {
+  50% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-top {
+  50% {
+    transform: translateY(+20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 

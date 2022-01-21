@@ -26,7 +26,7 @@ const SkillCard = ({ skill }) => {
 const Skills = ({ skills }) => {
   return (
     <section id="skills">
-      <h2 className="section-heading">Skills</h2>
+      <h2 className="section-heading skills-heading">Skills</h2>
       <div className="skill-card-holder">
         {skills.map((skill) => (
           <SkillCard skill={skill} key={skill.name} />

@@ -42,14 +42,14 @@ const Contact = ({ contacts }) => {
   const contactLinked = contacts.filter((contact) => !contact.content);
   const contactNoLinked = contacts.filter((contact) => !contact.link);
   return (
-    <footer>
-      <h2 className="section-heading">Contact Me</h2>
-      <div className="contact-holder-no-link">
+    <footer id="contacts">
+      <h2 className="section-heading contacts-heading">Contact Me</h2>
+      <div className="contacts-holder-no-link">
         {contactNoLinked.map((contact, i) => (
           <ContactElementNoLink contact={contact} key={i} />
         ))}
       </div>
-      <div className="contact-holder">
+      <div className="contacts-holder">
         {contactLinked.map((contact, i) => (
           <ContactElement contact={contact} key={i} />
         ))}

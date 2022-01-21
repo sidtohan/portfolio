@@ -8,7 +8,7 @@ const typer = async (skillList, ref, delay = 100) => {
     length = 0;
     while (length < skillList[idx].length) {
       ref.current.textContent += skillList[idx][length];
-      await waitms(100);
+      await waitms(75);
       length += 1;
     }
     await waitms(700);
@@ -23,7 +23,7 @@ const typer = async (skillList, ref, delay = 100) => {
 const Home = ({ name, skillList }) => {
   const skillRef = useRef(null);
   useEffect(() => {
-    setTimeout(() => typer(skillList, skillRef), 500);
+    setTimeout(() => typer(skillList, skillRef), 1100);
   });
   return (
     <section id="home">
@@ -31,7 +31,7 @@ const Home = ({ name, skillList }) => {
         <h2>Hi!</h2>
         <div className="name">My name is {name}.</div>
         <div className="home-skills">
-          I'm a <span className="home-skill-name" ref={skillRef}></span>
+          I'm a<span className="home-skill-name" ref={skillRef}></span>
           <span className="typing-cursor"></span>
         </div>
       </div>

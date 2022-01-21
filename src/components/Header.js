@@ -1,8 +1,8 @@
 import React from "react";
 
-const Header = ({ name, navList }) => {
+const Header = ({ name, navList, headerRef }) => {
   return (
-    <header>
+    <header ref={headerRef}>
       <h1 className="header-name">{name}</h1>
       <nav>
         <ul className="nav-list">

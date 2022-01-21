@@ -10,11 +10,11 @@ const Block = ({ index }) => {
     height: dimension,
     width: dimension,
     position: "fixed",
-    bottom: -2*dimension,
+    bottom: -2 * dimension,
     left: `${index * 15 > 90 ? index * 15 - 90 : index * 15}%`,
     backgroundColor: "#242424",
     animation: `float-around infinite 15s linear`,
-    animationDelay: `${Math.floor(Math.random() * 20)}s`,
+    animationDelay: `${Math.min(Math.floor(Math.random() * 20), 10)}s`,
     boxShadow: "0 0 6px 0 #242424",
   };
   return <div className="bg-block" style={inlineStyle}></div>;
