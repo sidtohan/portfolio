@@ -86,17 +86,17 @@ const App = () => {
       icon: "https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/c/c-original.svg",
     },
   ];
-  const achievements = [
-    {
-      text: "Took part in 30 Days of Google Cloud, and completed both the tracks(Cloud Engineering and Machine Learning)",
-    },
-    {
-      text: "Completed parts 0-5 of Full Stack Open 2021, with 5 credits and grade 4",
-    },
-    {
-      text: "6 Star in Problem solving on Hackerrank with many other 5 stars",
-    },
-  ];
+  // const achievements = [
+  //   {
+  //     text: "Took part in 30 Days of Google Cloud, and completed both the tracks(Cloud Engineering and Machine Learning)",
+  //   },
+  //   {
+  //     text: "Completed parts 0-5 of Full Stack Open 2021, with 5 credits and grade 4",
+  //   },
+  //   {
+  //     text: "6 Star in Problem solving on Hackerrank with many other 5 stars",
+  //   },
+  // ];
 
   const projects = [
     {
