@@ -45,6 +45,10 @@ header.sticky + #home {
   margin-top: 92px;
 }
 
+.burger-menu {
+  display: none;
+}
+
 .header-name {
   font-size: 35px;
   cursor: pointer;
@@ -121,7 +125,7 @@ header.sticky + #home {
 
 .home-skill-name {
   letter-spacing: 0.05em;
-  margin-left: 10px;
+  margin-left: 13px;
   color: #cca43b;
 }
 
@@ -172,6 +176,8 @@ header.sticky + #home {
   font-size: 30px;
   color: #363636;
 
+  display: flex;
+  flex-direction: column;
   transform: translateX(-75px);
   opacity: 0;
 }
@@ -225,6 +231,8 @@ header.sticky + #home {
   grid-column-gap: 30px;
   grid-row-gap: 50px;
   justify-items: center;
+
+  width: min(1200px, 80%);
 }
 
 .skill-card {
@@ -354,7 +362,7 @@ header.sticky + #home {
 
 .projects-holder {
   height: 700px;
-  width: 1100px;
+  width: min(1100px, 80%);
   display: grid;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
@@ -502,7 +510,7 @@ footer > h2 {
 ::-webkit-scrollbar {
   width: 10px;
   background: #e5e5e5;
-  z-index: 3;
+  z-index: 3 !important;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #242424;
@@ -513,9 +521,10 @@ footer > h2 {
 
 body,
 html {
-  overflow-x: hidden;
   overflow: auto;
   overflow: initial;
+  overflow-x: clip;
+
   height: 100%;
   width: 100%;
   background-color: #363636;
@@ -622,4 +631,56 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* MEDIA  */
+@media screen and (max-width: 1210px) {
+  /* HEADER  */
+  header {
+    padding: 20px 50px;
+  }
+  /* ABOUT ME  */
+  #about-me {
+    width: 100%;
+  }
+  .about-me-info {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .about-me-text {
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-me-text > p {
+    width: 100%;
+  }
+  .bg-block {
+    width: 75px !important;
+    height: 75px !important;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  /* TIME FOR BURGER MENU  */
+  .nav-list {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
+    height: 50px;
+    width: 100%;
+  }
+
+  /* HOME  */
+  #home {
+    padding: 160px 50px;
+  }
+  .skill-card-holder {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

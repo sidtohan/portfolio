@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Icon } from "@iconify/react";
 const Header = ({ name, navList, headerRef }) => {
   return (
     <header ref={headerRef}>
@@ -26,6 +26,11 @@ const Header = ({ name, navList, headerRef }) => {
             </li>
           ))}
         </ul>
+        <Icon
+          icon={"charm:menu-hamburger"}
+          color="#fff"
+          className="burger-menu"
+        />
       </nav>
     </header>
   );

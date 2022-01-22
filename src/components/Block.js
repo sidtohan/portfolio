@@ -1,6 +1,10 @@
 import React from "react";
 
 const Block = ({ index }) => {
+  let width = index * 15;
+  if(width > 90){
+    width = width - 90;
+  }
   const dimension = Math.min(
     Math.max(Math.ceil(Math.random() * (index + 1)) * 30, 100),
     100
@@ -11,7 +15,7 @@ const Block = ({ index }) => {
     width: dimension,
     position: "fixed",
     bottom: -2 * dimension,
-    left: `${index * 15 > 90 ? index * 15 - 90 : index * 15}%`,
+    left: `${width}vw`,
     backgroundColor: "#242424",
     animation: `float-around infinite 15s linear`,
     animationDelay: `${Math.floor(Math.random() * 12)}s`,
