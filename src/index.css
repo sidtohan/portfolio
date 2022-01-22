@@ -45,8 +45,11 @@ header.sticky + #home {
   margin-top: 92px;
 }
 
-.burger-menu {
+.burger-button,
+.close-menu-button {
   display: none;
+  background-color: transparent;
+  border: none;
 }
 
 .header-name {
@@ -729,13 +732,58 @@ footer {
 @media screen and (max-width: 940px) {
   /* TIME FOR BURGER MENU  */
   .nav-list {
-    display: none;
+    transform: translateY(-100%);
+    opacity: 0;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transition: 0.42s ease-in-out;
   }
 
-  .burger-menu {
+  .nav-list.show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    background-color: #242424;
+  }
+
+  .burger-button,
+  .close-menu-button {
+    display: block;
+  }
+
+  .burger-menu,
+  .close-menu {
     display: block;
     height: min(50px, 10vw);
     width: 100%;
+  }
+
+  .close-menu-button {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.42s ease-in-out;
+  }
+
+  .close-menu-button.show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .close-menu {
+    width: 50px;
+    position: fixed;
+    z-index: 2;
+    top: 20px;
+    right: 50px;
   }
 
   /* ABOUT ME  */
@@ -811,7 +859,7 @@ footer {
     grid-template-columns: 1fr;
   }
   /* CONTACTS  */
-  .contacts-holder{
+  .contacts-holder {
     grid-template-columns: 1fr;
   }
 }
