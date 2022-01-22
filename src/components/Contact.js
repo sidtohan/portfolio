@@ -16,14 +16,10 @@ const ContactElementNoLink = ({ contact }) => {
   );
 };
 const ContactElement = ({ contact }) => {
-  const style = {
-    gridRow: "2/5",
-  };
   return (
     <a
       className="contact-element"
       href={contact.link}
-      style={style}
       target="__blank"
       refererr="noreferrer"
     >

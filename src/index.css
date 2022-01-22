@@ -79,6 +79,8 @@ header.sticky + #home {
   width: 100%;
   padding: 160px 0px;
   color: #fff;
+
+  height: 100vh;
 }
 
 #home h2 {
@@ -127,12 +129,19 @@ header.sticky + #home {
   letter-spacing: 0.05em;
   margin-left: 13px;
   color: #cca43b;
+
+  display: block;
+  align-self: center;
 }
 
-.typing-cursor {
+.home-skill-name::after {
+  content: "";
   display: inline-block;
-  height: 40px;
+  vertical-align: middle;
+  margin-bottom: 2px;
+  height: 30px;
   width: 3px;
+  line-height: 30px;
   background-color: #cca43b;
 
   margin-left: 10px;
@@ -232,7 +241,7 @@ header.sticky + #home {
   grid-row-gap: 50px;
   justify-items: center;
 
-  width: min(1200px, 80%);
+  width: min(700px, 60%);
 }
 
 .skill-card {
@@ -466,6 +475,7 @@ footer > h2 {
   gap: 10px;
 
   opacity: 0;
+  text-align: center;
 }
 
 .contact-element.show {
@@ -635,14 +645,44 @@ footer {
 
 /* MEDIA  */
 @media screen and (max-width: 1210px) {
+  .section-heading {
+    font-size: min(15vw, 90px);
+  }
+
   /* HEADER  */
   header {
     padding: 20px 50px;
   }
+
+  .header-name {
+    font-size: min(7vw, 35px);
+  }
+
+  /* HOME  */
+  #home {
+    padding: 160px 10px;
+  }
+  #home h2 {
+    font-size: min(20vw, 120px);
+  }
+  .name {
+    font-size: min(6vw, 40px);
+  }
+  .home-skills {
+    font-size: min(5.4vw, 30px);
+  }
+  .home-skill-name {
+    margin-left: 0.5em;
+  }
+  .typing-cursor {
+    height: 5vw;
+  }
+
   /* ABOUT ME  */
   #about-me {
     width: 100%;
   }
+
   .about-me-info {
     flex-direction: column-reverse;
     width: 100%;
@@ -653,10 +693,32 @@ footer {
     text-align: center;
     align-items: center;
     justify-content: center;
+
+    font-size: min(5vw, 30px);
+  }
+
+  .profile-pic {
+    width: 60%;
+    height: auto;
   }
 
   .about-me-text > p {
     width: 100%;
+  }
+
+  /* SKILLS  */
+  .skill-card-holder {
+    width: 80%;
+  }
+
+  .project-card {
+    font-size: min(5vw, 25px);
+  }
+
+  /* CONTACTS  */
+  .contact-element {
+    font-size: min(5vw, 25px);
+    overflow-wrap: break-word;
   }
   .bg-block {
     width: 75px !important;
@@ -672,15 +734,84 @@ footer {
 
   .burger-menu {
     display: block;
-    height: 50px;
+    height: min(50px, 10vw);
     width: 100%;
   }
 
-  /* HOME  */
-  #home {
-    padding: 160px 50px;
+  /* ABOUT ME  */
+  .profile-pic {
+    width: 75%;
   }
+  /* SKILLS  */
   .skill-card-holder {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* CONTACTS  */
+  .contacts-holder-no-link {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* SKILLS  */
+  .skill-card-holder {
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+  }
+
+  /* PROJECTS  */
+  .projects-holder {
+    height: auto;
+    grid-template-rows: repeat(13, 1fr);
+  }
+  .project-card {
+    grid-column: 1/11 !important;
+  }
+  .project-card:nth-child(1) {
+    grid-row: 1/4 !important;
+  }
+  .project-card:nth-child(2) {
+    grid-row: 4/7 !important;
+  }
+  .project-card:nth-child(3) {
+    grid-row: 7/11 !important;
+  }
+  .project-card:nth-child(4) {
+    grid-row: 11/14 !important;
+  }
+  /* CONTACTS  */
+  .contacts-holder {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 616px) {
+  /* HOME  */
+  .home-skills {
+    flex-direction: column;
+  }
+  #home h2 {
+    text-align: center;
+  }
+  .name {
+    text-align: center;
+  }
+  /* SKILLS  */
+  .skill-card-holder {
+    grid-template-columns: repeat(2, 1fr);
+    width: 70%;
+  }
+}
+
+/* PHONES  */
+@media screen and (max-width: 414px) {
+  /* SKILLS  */
+  .skill-card-holder {
+    grid-template-columns: 1fr;
+  }
+  /* CONTACTS  */
+  .contacts-holder{
+    grid-template-columns: 1fr;
   }
 }

@@ -32,7 +32,6 @@ const Home = ({ name, skillList }) => {
         <div className="name">My name is {name}.</div>
         <div className="home-skills">
           I'm a<span className="home-skill-name" ref={skillRef}></span>
-          <span className="typing-cursor"></span>
         </div>
       </div>
     </section>
